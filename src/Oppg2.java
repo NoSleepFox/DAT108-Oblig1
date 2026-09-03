@@ -28,21 +28,25 @@ public class Oppg2 {
         ));
 
         // Et fast kronetillegg
+        System.out.println("Et fast kronetillegg på 10000kr");
         lonnsoppgjor(ansatte, a -> a.getAarslonn() + 10000);
         skrivUtAlle(ansatte);
         System.out.println();
 
         // Et fast prosenttillegg
+        System.out.println("Et fast prosenttillegg på 20%");
         lonnsoppgjor(ansatte, a -> (int) (a.getAarslonn() * 1.2));
         skrivUtAlle(ansatte);
         System.out.println();
 
         // Et fast kronetillegg hvis du har lav lønn
+        System.out.println("Et fast kronetillegg på 30000kr hvis du har under 400000kr lønn");
         lonnsoppgjor(ansatte, a -> { if (a.getAarslonn() < 400000) return a.getAarslonn() + 30000; else return a.getAarslonn(); });
         skrivUtAlle(ansatte);
         System.out.println();
 
         // Et fast prosenttillegg hvis du er mann
+        System.out.println("Et fast prosenttillegg på 20% hvis du er mann");
         lonnsoppgjor(ansatte, a -> { if (a.getKjonn() == Kjonn.MANN) return (int) (a.getAarslonn() * 1.2); else return a.getAarslonn(); });
         skrivUtAlle(ansatte);
         System.out.println();

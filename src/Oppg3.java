@@ -20,12 +20,14 @@ public class Oppg3 {
                 .map(a -> a.getEtternavn())
                 .toList();
         System.out.println(etternavn);
+        System.out.println();
 
         // b) antall kvinner blant ansatte
         long antallKvinner = ansatte.stream()
                 .filter(a -> a.getKjonn() == Kjonn.KVINNE)
                 .count();
-        System.out.println(antallKvinner);
+        System.out.println("Antall kvinner: " + antallKvinner);
+        System.out.println();
 
         // c) gjennomsnittslønn til kvinnlige ansatte
         double gjennomsnitt = ansatte.stream()
@@ -33,22 +35,26 @@ public class Oppg3 {
                 .mapToInt(a -> a.getAarslonn())
                 .average()
                 .orElse(0);
-        System.out.println(gjennomsnitt);
+        System.out.println("Gjennomsnittslønn til kvinnlige ansatte: " + gjennomsnitt + "kr");
+        System.out.println();
 
         // d) alle sjefer 7% lønnsøkning vb. Streams, skriver ut liste av ansatte
         ansatte.stream()
                 .filter(a -> a.getStilling().toLowerCase().contains("sjef"))
                 .forEach(a -> a.setAarslonn((int) (a.getAarslonn() * 1.07)));
         ansatte.forEach(System.out::println);
+        System.out.println();
 
         // e) finn ut om noen tjener over 800 000,-
         System.out.println("Tjener noen over 800 000kr?");
         boolean lonnOver800k = ansatte.stream()
                 .anyMatch(a -> a.getAarslonn() > 800000);
         System.out.println(lonnOver800k);
+        System.out.println();
 
         // f) Skriv alle ansatte ut - System.out.println() uten å bruke løkke
         ansatte.forEach(System.out::println);
+        System.out.println();
 
         // g) Ansatt/e med lavest lønn
         int lavesteLonn = ansatte.stream()
@@ -61,6 +67,7 @@ public class Oppg3 {
                 .filter(a -> a.getAarslonn() == lavesteLonn)
                 .toList();
         System.out.println(lavestLonnede);
+        System.out.println();
 
         // h) finn summen av alle heltall i [1, 1000 > som er delelig med 3 eller 5
         System.out.println("summen av alle heltall i [1, 1000] delelig med 3 eller 5:");
